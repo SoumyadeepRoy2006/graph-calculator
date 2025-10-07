@@ -1,0 +1,165 @@
+:root{
+	--cell-border-width: 1%;
+	--cell-size: 60px;
+}
+
+body {
+   height: 100dvh;
+   margin: 0;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   
+   background-color: #eee;
+   background-image:
+      linear-gradient(to bottom, #00c480 var(--cell-border-width), transparent var(--cell-border-width) calc(100% - var(--cell-border-width)), #00c480 calc(100% - var(--cell-border-width))),
+      linear-gradient(to right, #00c480 var(--cell-border-width), transparent var(--cell-border-width) calc(100% - var(--cell-border-width)), #00c480 calc(100% - var(--cell-border-width)));
+   background-size: var(--cell-size) var(--cell-size);
+   
+
+}
+
+#settings_button {
+   width: 40px;
+   aspect-ratio: 1/1;
+   padding: 0.4rem 0.8rem 0.8rem 0.4rem;
+   position: absolute;
+   left: 0;
+   top: 0;
+   background-image: url("./icons/settings icon.svg");
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: contain;
+   background-origin: content-box;
+   border-radius: 0 0 1.25rem 0;
+}
+#settings_button:hover {
+   background-color: #ddd;
+}
+
+#calculator {
+   min-width: max(20rem, 60vw);
+   max-width: 95vw;
+   background-color: white;
+   padding: 1.5rem;
+   box-sizing: border-box;
+   border-radius: 1rem;
+}
+
+#settings {
+   width: 100%;
+   position: relative;
+   padding: 0.5rem;
+   box-sizing: border-box;
+   border: 1px solid lightgrey;
+   border-radius: 1rem;
+}
+
+#close_button {
+   width: 1.2em;
+   height: 1.2em;
+   padding: 0.15em;
+
+   position: absolute;
+   right: 0.3rem;
+   top: 0.1rem;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   background-color: red;
+
+   color: white;
+   font-family: sans-serif;
+   font-weight: 700;
+
+   border-radius: 50%;
+
+   cursor: pointer;
+}
+
+#settings > .input_container {
+   margin: 1rem 0;
+   width: 100%;
+   display: flex;
+   flex-wrap: nowrap;
+   justify-content: space-evenly;
+}
+input{
+   padding: 4%;
+   border-width: 0.05rem;
+   border-radius: 0.8rem;
+   outline: none;
+}
+#settings > .input_container > input {
+   width: 32%;
+}
+
+#main{
+   width: 100%;
+   padding: 1rem;
+   box-sizing: border-box;
+   display: flex;
+   flex-direction: column;
+   row-gap: 2rem;
+   justify-content: space-between;
+}
+#main > .input_container {
+   display: flex;
+   flex-direction: column;
+   row-gap: 1rem;
+   row-gap: 0.5rem;
+   align-items: center;
+}
+#main > .input_container > input {
+   width: 70%
+}
+
+#output{
+   font-size: 1.1rem;
+   padding: 0 1rem;
+   box-sizing: border-box;
+}
+#output > p {
+   font-weight: 600;
+}
+#output > p:nth-child(n+2) {
+   padding: 0 1rem;
+   display: flex;
+   align-items: center;
+}
+
+#settings div, #main div{
+   user-select: none;
+}
+
+.coordinate{
+   padding-left: 0.5rem;
+   font-size: 0.9rem;
+   font-weight: 400;
+}
+
+@media (orientation: portrait)
+or (aspect-ratio: 1/1) {
+   #main{
+      display: none;
+   }
+}
+
+@media (orientation: landscape) {
+   #settings_button,
+   #close_button {
+      display: none;
+   }
+   #calculator {
+      display: flex;
+      column-gap: 1.5rem;
+   }
+   #main{
+      border: 1px solid lightgray;
+      border-radius: 1rem;
+   }
+}
